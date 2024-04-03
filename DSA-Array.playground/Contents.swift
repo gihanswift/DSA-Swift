@@ -25,7 +25,7 @@ print(strings)
 
 
 
-
+print(":")
 
 
 
