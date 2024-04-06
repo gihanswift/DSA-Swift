@@ -11,17 +11,17 @@ strings.append("e") // O(1)
 
 //pop
 strings.popLast()
-print(strings)
+//print(strings)
 strings.popLast() // O(1) -> We are not looping through items
 
 
 //Insert
 strings.insert("x", at: 0) //O(n) we have to line the indexes.
-print(strings)
+//print(strings)
 
 //Insert into middle of the array
 strings.insert("Aliece", at: strings.count / 2) // O(n)
-print(strings)
+//print(strings)
 
 
 
@@ -53,8 +53,8 @@ func revers2(name: String) -> String {
 }
 
 
-print(revers(name: name))
-print(revers2(name: name))
+//print(revers(name: name))
+//print(revers2(name: name))
 
 
 //Reverse an Array
@@ -70,7 +70,7 @@ func reverseArray(a: [Int]) -> [Int] {
     return reverse
 }
 
-print(reverseArray(a: a))
+//print(reverseArray(a: a))
 
 
 
@@ -134,9 +134,9 @@ func mergeSortedArrays(_ array1:[Int], _ array2:[Int]) -> [Int] {
     return mergedArray
 }
 
-print(mergeSortedArrays([0, 3, 10, 15, 20], [1, 5, 12, 19, 25, 30, 50]))
+//print(mergeSortedArrays([0, 3, 10, 15, 20], [1, 5, 12, 19, 25, 30, 50]))
 
-//Contains Duplicate in array - Leet code
+Contains Duplicate in array - Leet code
 
 func containsDuplicate(_ nums: [Int]) -> Bool {
     var hashSet = Set<Int>()
@@ -155,23 +155,26 @@ func containsDuplicate(_ nums: [Int]) -> Bool {
 containsDuplicate([0, 3, 10, 15, 20, 3])
 
 func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
-    var hasMap = [Int : Int]()
-    
+    var hasMap = [Int : Int]()// Empty dictionary
+   var resultArray = [Int]()
     for (key, value) in nums.enumerated() {
-        var differnce = target - value
-        if hasMap.values.contains(differnce) {
-            guard let x = hasMap[differnce] else { return [] }
-            return [x, key]
-       
+        var difference = target - value
+        if let keyItem = hasMap[difference] {
+           resultArray = [keyItem, key]
+            break
+           
+          
         }
         
         hasMap[value] = key
-        return []
+      
+        
+          
         
     }
     
-    return []
+    return resultArray
     
 }
 
-twoSum([1,2,3,4,5], 9)
+twoSum([2,11,15,7], 9)
