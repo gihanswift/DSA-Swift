@@ -136,7 +136,7 @@ func mergeSortedArrays(_ array1:[Int], _ array2:[Int]) -> [Int] {
 
 //print(mergeSortedArrays([0, 3, 10, 15, 20], [1, 5, 12, 19, 25, 30, 50]))
 
-Contains Duplicate in array - Leet code
+
 
 func containsDuplicate(_ nums: [Int]) -> Bool {
     var hashSet = Set<Int>()
@@ -152,24 +152,45 @@ func containsDuplicate(_ nums: [Int]) -> Bool {
     return false
 }
 
+var nums = [0,0,1,1,1,2,2,3,3,4]
+
+func removeDuplicates(_ nums: inout [Int]) -> Int {
+  var l = 1
+
+    for r in 1..<nums.count {
+        
+        if nums[r] != nums[r - 1] {
+            nums[l] = nums[r]
+            l += 1
+            print(l)
+          
+        }
+    }
+    
+    return l
+    
+}
+
+removeDuplicates(&nums)
+
 containsDuplicate([0, 3, 10, 15, 20, 3])
 
 func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
     var hasMap = [Int : Int]()// Empty dictionary
-   var resultArray = [Int]()
+    var resultArray = [Int]()
     for (key, value) in nums.enumerated() {
         var difference = target - value
         if let keyItem = hasMap[difference] {
-           resultArray = [keyItem, key]
+            resultArray = [keyItem, key]
             break
-           
-          
+            
+            
         }
         
         hasMap[value] = key
-      
         
-          
+        
+        
         
     }
     
