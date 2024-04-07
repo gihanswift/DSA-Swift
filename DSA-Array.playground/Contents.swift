@@ -72,6 +72,44 @@ func reverseArray(a: [Int]) -> [Int] {
 
 //print(reverseArray(a: a))
 
+//Move Zeros
+var numssd = [0,1,0,3,12]
+func moveZeroes(_ nums: inout [Int]) {
+        var left = 0
+    
+    for i  in 0..<nums.count {
+       
+        if nums[i] != 0 {
+            (nums[left], nums[i]) = (nums[i], nums[left])
+            left += 1
+        }
+    }
+    
+   
+}
+
+//func twoSum3(_ array: [Int], _ target: Int) -> [Int] {
+//    var dic = [Int : Int]()
+//    
+//    for (k,v) in array.enumerated() {
+//        var dif = target - v
+//        if let value = dic[dif] {
+//            print(value)
+//            return [value, k]
+//        }
+//        
+//        dic[v] = k
+//    }
+//    
+//    return []
+//}
+//
+//twoSum3([2,0,3,7], 9)
+
+moveZeroes(&numssd)
+
+
+
 
 
 
@@ -199,3 +237,10 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
 }
 
 twoSum([2,11,15,7], 9)
+
+//Move Zeros
+var numss = [0,1,0,3,12]
+
+
+
+
