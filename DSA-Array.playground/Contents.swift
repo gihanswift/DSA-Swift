@@ -75,32 +75,32 @@ func reverseArray(a: [Int]) -> [Int] {
 //Move Zeros
 var numssd = [0,1,0,3,12]
 func moveZeroes(_ nums: inout [Int]) {
-        var left = 0
+    var left = 0
     
     for i  in 0..<nums.count {
-       
+        
         if nums[i] != 0 {
             (nums[left], nums[i]) = (nums[i], nums[left])
             left += 1
         }
     }
     
-   
+    
 }
 
 //func twoSum3(_ array: [Int], _ target: Int) -> [Int] {
 //    var dic = [Int : Int]()
-//    
+//
 //    for (k,v) in array.enumerated() {
 //        var dif = target - v
 //        if let value = dic[dif] {
 //            print(value)
 //            return [value, k]
 //        }
-//        
+//
 //        dic[v] = k
 //    }
-//    
+//
 //    return []
 //}
 //
@@ -193,15 +193,15 @@ func containsDuplicate(_ nums: [Int]) -> Bool {
 var nums = [0,0,1,1,1,2,2,3,3,4]
 
 func removeDuplicates(_ nums: inout [Int]) -> Int {
-  var l = 1
-
+    var l = 1
+    
     for r in 1..<nums.count {
         
         if nums[r] != nums[r - 1] {
             nums[l] = nums[r]
             l += 1
             print(l)
-          
+            
         }
     }
     
@@ -209,7 +209,7 @@ func removeDuplicates(_ nums: inout [Int]) -> Int {
     
 }
 
-removeDuplicates(&nums)
+//removeDuplicates(&nums)
 
 containsDuplicate([0, 3, 10, 15, 20, 3])
 
@@ -236,11 +236,82 @@ func twoSum(_ nums: [Int], _ target: Int) -> [Int] {
     
 }
 
-twoSum([2,11,15,7], 9)
+//twoSum([2,11,15,7], 9)
 
 //Move Zeros
-var numss = [0,1,0,3,12]
+var numss = [3,2,2,3]
 
+var s = "Hello World"
 
+func lengthOfLastWord(_ s: String) -> Int {
+    
+    if s.isEmpty {
+        return 0
+    }
+    
+    let sd = Array(s)
+    var length = s.count
+    var lastWord = 0
+    
+    while length > 0 && sd[length - 1] == " " {
+        length -= 1
+        print("hi")
+    }
+    
+    while length > 0 && sd[length - 1] != " " {
+        lastWord += 1
+        length -= 1
+    }
+    print(sd)
+    return lastWord
+    
+}
 
+lengthOfLastWord(s)
 
+var snums = [3,2,2,3]
+
+func removeElement(_ nums: inout [Int], _ val: Int) -> Int {
+    var k = 0
+    for i in nums {
+        print(i)
+        if i != val {
+            
+            nums[k] = i
+            
+            k += 1
+            
+        }
+        
+        
+        
+        
+    }
+    print(nums)
+    return k
+}
+
+let removedCount = removeElement(&snums, 3)
+
+func romanToInt(_ s: String) -> Int {
+    var roma: [Character: Int] = ["I": 1, "V": 5, "X": 10, "L":50, "C": 100, "D": 500, "M": 1000]
+    var sum = 0
+
+    let characterArray = Array(s)
+    for i in 0..<characterArray.count {
+        
+        guard let currentValue = roma[characterArray[i]] else { return 0 }
+        let nextValue = i < characterArray.count - 1 ? roma[characterArray[i + 1]] : 0
+        
+        if currentValue < nextValue! {
+            sum -= currentValue
+        } else {
+            sum += currentValue
+        }
+        
+    }
+  print(sum)
+    return sum
+}
+
+romanToInt("CMXCVIII")
