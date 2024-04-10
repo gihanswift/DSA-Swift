@@ -315,3 +315,23 @@ func romanToInt(_ s: String) -> Int {
 }
 
 romanToInt("CMXCVIII")
+
+func majorityElement(_ nums: [Int]) -> Int {
+    var res = 0
+    var count = 0
+    
+    for n in nums {
+        if count == 0 {
+            res = n
+        }
+        
+        count += n == res ? 1 : -1
+    }
+    
+    return res
+    
+
+        
+}
+
+majorityElement([3,2,3])
