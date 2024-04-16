@@ -296,7 +296,7 @@ let removedCount = removeElement(&snums, 3)
 func romanToInt(_ s: String) -> Int {
     var roma: [Character: Int] = ["I": 1, "V": 5, "X": 10, "L":50, "C": 100, "D": 500, "M": 1000]
     var sum = 0
-
+    
     let characterArray = Array(s)
     for i in 0..<characterArray.count {
         
@@ -310,7 +310,7 @@ func romanToInt(_ s: String) -> Int {
         }
         
     }
-  print(sum)
+    print(sum)
     return sum
 }
 
@@ -330,8 +330,28 @@ func majorityElement(_ nums: [Int]) -> Int {
     
     return res
     
-
-        
+    
+    
 }
 
 majorityElement([3,2,3])
+
+
+var prices = [7,1,5,3,6,4]
+
+func maxProfit(_ prices: [Int]) -> Int {
+    var maxPrice = 0
+    var minPrice = Int.max
+    
+    for price in prices {
+        minPrice = min(minPrice, price)
+        var profit = price - minPrice
+        maxPrice = max(maxPrice, profit)
+    }
+    
+    return maxPrice
+   
+    
+}
+
+maxProfit(prices)
