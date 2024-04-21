@@ -420,3 +420,21 @@ var ddd = [1,2,3,4,5,6,7]
 
 rotate(&ddd, 2)
 
+
+//Best time to buy and sell 2
+func maxProfit2(_ prices: [Int]) -> Int {
+    var profit = 0
+
+    for price in 1..<prices.count {
+        if prices[price] > prices[price - 1] {
+            profit += prices[price] - prices[price - 1]
+        }
+    }
+
+    return profit
+
+}
+
+maxProfit2([7,1,5,3,6,4])
+
+
