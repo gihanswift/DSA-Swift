@@ -88,3 +88,24 @@ for bucket in hasha.buckets {
     }
 }
 hasha.retriveValue(for: "grapes")
+
+//First recurring character
+
+var array = [2,5,5,2,3,5,1,2,4]
+
+func firstRecuringNumber(_ nums : [Int]) -> Int {
+    var mostRecurringNumber = 0
+    var dic : [Int : Int] = [:]
+    for (key, value) in nums.enumerated() {
+        if dic.values.contains(value) {
+            mostRecurringNumber = value
+            break
+        }
+
+        dic.updateValue(value, forKey: key)
+    }
+
+    return mostRecurringNumber
+}
+
+firstRecuringNumber(array)
