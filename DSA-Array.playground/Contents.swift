@@ -438,3 +438,40 @@ func maxProfit2(_ prices: [Int]) -> Int {
 maxProfit2([7,1,5,3,6,4])
 
 
+func getConcatenation(_ nums: [Int]) -> [Int] {
+
+  return nums + nums
+
+}
+
+
+getConcatenation([1,2,1])
+
+
+//-----Find the index of the first occurence in a String ----
+
+func strStr(_ haystack: String, _ needle: String) -> Int {
+    var haystackArray = Array(haystack)
+    var needleArray = Array(needle)
+
+    if needleArray.count > haystackArray.count { return -1 }
+
+    for startIndex in 0..<haystackArray.count {
+        if startIndex + needleArray.count > haystackArray.count {
+            return -1
+        }
+
+        var j = 0
+        while j < needleArray.count && haystackArray[startIndex + j] == needleArray[j] {
+            j += 1
+        }
+
+        if j == needleArray.count {
+            return startIndex
+        }
+    }
+    return -1
+
+}
+
+strStr("sadbutsad", "sad")
