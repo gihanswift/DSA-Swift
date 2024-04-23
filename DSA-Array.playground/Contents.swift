@@ -440,7 +440,7 @@ maxProfit2([7,1,5,3,6,4])
 
 func getConcatenation(_ nums: [Int]) -> [Int] {
 
-  return nums + nums
+    return nums + nums
 
 }
 
@@ -475,3 +475,27 @@ func strStr(_ haystack: String, _ needle: String) -> Int {
 }
 
 strStr("sadbutsad", "sad")
+
+
+
+func canConstruct(_ ransomNote: String, _ magazine: String) -> Bool {
+
+    var charCounts: [Character: Int] = [:]
+    for char in magazine {
+        charCounts[char, default: 0] += 1
+    }
+
+    print(charCounts)
+    for char in ransomNote {
+        if charCounts[char, default: 0] == 0 {
+            print(charCounts[char, default: 0])
+            return false
+        }
+        print(charCounts[char])
+        charCounts[char]! -= 1
+    }
+
+    return true
+}
+
+canConstruct("aaaaaa", "bbbaaaa")
