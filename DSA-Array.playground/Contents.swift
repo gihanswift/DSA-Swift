@@ -499,3 +499,29 @@ func canConstruct(_ ransomNote: String, _ magazine: String) -> Bool {
 }
 
 canConstruct("aaaaaa", "bbbaaaa")
+
+
+print("------- Isomorphic Strings ------")
+//
+
+func isIsomorphic(_ s: String, _ t: String) -> Bool {
+    var map = [Character: Character]()
+    for i in s.indices {
+        if let value = map[s[i]] {
+            guard value == t[i] else {
+                return false
+            }
+        }
+        else if map.values.contains(t[i]) {
+            return false
+        }
+        else {
+            map[s[i]] = t[i]
+        }
+    }
+    return true
+
+
+}
+
+isIsomorphic("foo", "bar")
