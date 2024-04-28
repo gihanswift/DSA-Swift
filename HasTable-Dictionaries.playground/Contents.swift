@@ -190,3 +190,20 @@ func isAnagram(_ s: String, _ t: String) -> Bool {
 }
 
 isAnagram("ad", "cv")
+
+
+
+func groupAnagrams(_ strs: [String]) -> [[String]] {
+
+    var dict: [String : [String]] = [:]
+
+    for str in strs {
+        let sorted = String(str.sorted())
+        print(dict[sorted])
+        dict[sorted, default: []].append(str)
+    }
+    print(Array(dict.values))
+    return Array(dict.values)
+    }
+
+groupAnagrams(["eat","tea","tan","ate","nat","bat"])
