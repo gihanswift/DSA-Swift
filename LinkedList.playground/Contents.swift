@@ -94,6 +94,14 @@ public struct LinkedList<Value> {
 
     }
 
+    public mutating func remove(index: Int) {
+        var leader = self.traversToIndex(index - 1)
+        var removeHoldingPointer = leader?.next
+        leader?.next = removeHoldingPointer?.next
+
+    }
+
+
 }
 
 var myLinkedList = LinkedList<Any>()
@@ -102,6 +110,7 @@ myLinkedList.append(16)
 myLinkedList.append(10)
 myLinkedList.prepend(1)
 myLinkedList.insert(for: 1, value: 99)
+myLinkedList.remove(index: 2)
 myLinkedList.printList()
 
 
